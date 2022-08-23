@@ -1,3 +1,5 @@
 #!/bin/sh
 
-python collect_metrics.py "$1" "$2"
+metrics_path = "/github/workspace/$1"
+
+python /collect_metrics.py "$metrics_path" "$2"
