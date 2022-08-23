@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python collect_metrics.py "$1" "$2"
+python3 collect_metrics.py "$1" "$2"
