@@ -1,0 +1,22 @@
+---
+name: 'Upload Metrics Action'
+description: 'GitHub action to build and run Googletest cases'
+author: 'Grahame White'
+inputs:
+  metrics-file:
+    description: 'the name of the file to write to'
+    required: true
+    default: 'summary'
+  metrics-path:
+    description: 'relative path to save json file to'
+    required: true
+    default: 'metrics'
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/apollo-fire/metrics-collect-summary-action:v0.0.1'
+  args:
+    - ${{ inputs.metrics-path }}
+    - ${{ inputs.metrics-file }}
+branding:
+  icon: 'code'
+  colour: 'orange'
