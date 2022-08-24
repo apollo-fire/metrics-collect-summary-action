@@ -11,12 +11,17 @@ inputs:
     description: 'relative path to save json file to'
     required: true
     default: 'metrics'
+  metrics-current-branch:
+    description: 'the name of the branch triggering the metrics collection'
+    required: true
+    default: ''
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/apollo-fire/metrics-collect-summary-action:v0.0.2'
   args:
     - ${{ inputs.metrics-path }}
     - ${{ inputs.metrics-file }}
+    - ${{ inputs.metrics-current-branch}}
 branding:
   icon: 'code'
   colour: 'orange'
