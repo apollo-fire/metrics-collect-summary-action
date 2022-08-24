@@ -1,15 +1,27 @@
 import json
 import os
 import sys
+from datetime import datetime
+
+from git import Repo
 
 
 def main(args):
     """
     Collect some metrics and save to a json file
     """
+    repo = Repo(args[3])
+    sha_hash = repo.head.object.hexsha
+    repo_name = repo.remotes.origin.url.split(".git")[0].split("/")[-1]
+    branch_name = repo.active_branch.name
+
     metrics_data = {
-        "name": "some test repo",
-        "data": "some other data that was collected",
+        "hash": f"{sha_hash}",
+        "data": {
+            "timestamp": f"{str(datetime.now().isoformat())}",
+            "repo": f"{repo_name}",
+            "branch": f"{branch_name}",
+        },
     }
     save_doc(args[1], args[2], metrics_data)
 
