@@ -13,7 +13,7 @@ inputs:
     default: 'metrics'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/apollo-fire/metrics-collect-summary-action:v0.0.1'
+  image: 'docker://ghcr.io/apollo-fire/metrics-collect-summary-action:v0.0.2'
   args:
     - ${{ inputs.metrics-path }}
     - ${{ inputs.metrics-file }}
