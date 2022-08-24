@@ -6,4 +6,4 @@
 
 # Where to save metrics file to
 metrics_path="/github/workspace/$1"
-python3 /collect_metrics.py "$metrics_path" "$2" "$3"
+python3 /collect_metrics.py "$metrics_path" "$2" "/github/workspace"
