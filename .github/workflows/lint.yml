@@ -3,9 +3,13 @@ name: Lint Project
 
 on:
   push:
-    branches-ignore:
-      - 'dependabot/**'
+    branches: [main]
   pull_request:
+    types: [opened, synchronize]
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   super-lint:
