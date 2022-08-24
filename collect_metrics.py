@@ -13,7 +13,7 @@ def main(args):
     repo = Repo(args[3])
     sha_hash = repo.head.object.hexsha
     repo_name = repo.remotes.origin.url.split(".git")[0].split("/")[-1]
-    branch_name = repo.active_branch.name
+    branch_name = args[4]
 
     metrics_data = {
         "hash": f"{sha_hash}",
