@@ -1,9 +1,9 @@
 import json
 import os
 import sys
+from datetime import datetime
 
 from git import Repo
-from datetime import datetime
 
 
 def main(args):
